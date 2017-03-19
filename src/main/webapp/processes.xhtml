@@ -18,12 +18,18 @@
 					<div class="col-md-12">
 						<h3>Process 'Sample'</h3>
 					</div>
-					<h:form class="form-horizontal">
-					<div class="form-group">
+					<h:form id="processes" class="form-horizontal">
+						<div class="col-md-12">
+							<ui:param name="messages" value="#{facesContext.getMessageList('processes:text')}" />
+							<ui:repeat var="message" value="#{messages}">
+								<p class="alert alert-danger"><h:outputText value="#{message.summary}" /></p>
+							</ui:repeat>
+						</div>
+						<div class="form-group">
 							<label class="col-md-1 control-label" for="text">Text</label>
 							<div class="col-md-10">
 								<h:inputText class="form-control" placeholder="Text" autofocus="autofocus" id="text" name="text" type="text"
-									value="#{processesBean.text}" />
+									value="#{processesBean.processesModel.text}" required="true" requiredMessage="Text is mandatory." />
 							</div>
 							<div class="col-md-1">
 								<h:commandButton class="btn btn-primary" value="Start" action="#{processesBean.startProcess}" />

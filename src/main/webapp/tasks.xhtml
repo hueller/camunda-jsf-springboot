@@ -8,13 +8,37 @@
 		<ui:param name="title" value="Tasks" />
 		<ui:param name="loggedIn" value="true" />
 		<ui:param name="active" value="Tasks" />
-	
+
 		<ui:define name="content">
-		
+
 			<div class="container">
 				<h2>Tasks</h2>
-			</div>
 
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-hover">
+							<tr>
+								<th>Id</th>
+								<th>Process Instance Id</th>
+								<th>Name</th>
+								<th>Assignee</th>
+								<th>Action</th>
+							</tr>
+							<ui:repeat var="assignedTask" value="#{camundaProcessService.getTasksForAssigne('admin')}">
+								<tr>
+									<td><h:outputText value="#{assignedTask.id}" /></td>
+									<td><h:outputText value="#{assignedTask.processInstanceId}" /></td>
+									<td><h:outputText value="#{assignedTask.name}" /></td>
+									<td><h:outputText value="#{assignedTask.assignee}" /></td>
+									<td><h:form>
+											<h:commandButton class="btn btn-primary" value="Complete" action="#{tasksBean.completeTask(assignedTask.id)}" />
+										</h:form></td>
+								</tr>
+							</ui:repeat>
+						</table>
+					</div>
+				</div>
+			</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

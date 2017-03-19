@@ -1,4 +1,4 @@
-package de.hsansbach.ecommerce.bean;
+package de.hsansbach.ecommerce.jsf;
 
 import org.springframework.stereotype.Component;
 
