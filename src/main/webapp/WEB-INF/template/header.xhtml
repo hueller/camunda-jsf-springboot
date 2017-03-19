@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition>
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<h:graphicImage alt="HS Ansbach" library="img" name="hsansbach_120px.png" styleClass="navbar-brand full" />
+				</div>
+
+				<div id="navbar" class="collapse navbar-collapse">
+					<ui:fragment rendered="#{not loggedIn}">
+						<form class="navbar-form navbar-right" action="${request.contextPath}/login" method="post">
+							<div class="form-group">
+								<input id="username" name="username" class="form-control" placeholder="User" required="required" autofocus="autofocus" />
+							</div>
+							<div class="form-group">
+								<input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required" />
+							</div>
+							<button type="submit" class="btn btn-success">Login</button>
+						</form>
+					</ui:fragment>
+					<ui:fragment rendered="#{loggedIn}">
+						<ul class="nav navbar-nav">
+							<li class="#{(active == 'Home') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('HOME')}">Home</h:outputLink></li>
+							<li class="#{(active == 'Processes') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('PROCESSES')}">Processes</h:outputLink></li>
+							<li class="#{(active == 'Tasks') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('TASKS')}">Tasks</h:outputLink></li>
+							<li><a href="/app/" target="_blank">Camunda Webapps</a></li>
+							<li><a href="/h2-console/" target="_blank">H2 Console</a></li>
+						</ul>
+					</ui:fragment>
+					<ui:fragment rendered="#{loggedIn}">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/logout">Logout</a></li>
+						</ul>
+					</ui:fragment>
+				</div>
+			</div>
+		</nav>
+
+	</ui:composition>
+</h:body>
+
+</html>
