@@ -1,5 +1,7 @@
 package de.hsansbach.ecommerce.jsf.bean;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ public class TasksBean {
 	public String completeTask(String taskId) {
 		camundaProcessService.completeTask(taskId);
 		
-		return navigationHelper.navigateTo(NavigationKey.TASKS);
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message", new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully completed task id " + taskId + ".",""));
+		return navigationHelper.navigateTo(NavigationKey.TASKS, true);
 	}
 }

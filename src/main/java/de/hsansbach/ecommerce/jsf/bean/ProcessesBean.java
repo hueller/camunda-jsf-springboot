@@ -3,6 +3,8 @@ package de.hsansbach.ecommerce.jsf.bean;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +37,9 @@ public class ProcessesBean {
 		variables.put("text", processesModel.getText());
 
 		camundaProcessService.startProcess("Sample", variables);
-		
-		processesModel = new ProcessesModel();
 
-		return navigationHelper.navigateTo(NavigationKey.PROCESSES);
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message", new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process 'Sample'.",""));
+		return navigationHelper.navigateTo(NavigationKey.PROCESSES, true);
 	}
 
 	public ProcessesModel getProcessesModel() {
