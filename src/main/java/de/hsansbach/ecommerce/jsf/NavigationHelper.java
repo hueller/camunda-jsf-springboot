@@ -12,6 +12,10 @@ public class NavigationHelper {
 	public String navigateTo(NavigationKey key) {
 		return key.getFileName();
 	}
+	
+	public String navigateTo(NavigationKey key, boolean doRedirect) {
+		return navigateTo(key) + "?faces-redirect=true";
+	}
 
 	public enum NavigationKey {
 		LOGIN("/login.jsf"), 
