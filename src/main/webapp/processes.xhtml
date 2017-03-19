@@ -8,11 +8,29 @@
 		<ui:param name="title" value="Processes" />
 		<ui:param name="loggedIn" value="true" />
 		<ui:param name="active" value="Processes" />
-	
+
 		<ui:define name="content">
-		
+
 			<div class="container">
 				<h2>Processes</h2>
+
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Process 'Sample'</h3>
+					</div>
+					<h:form class="form-horizontal">
+					<div class="form-group">
+							<label class="col-md-1 control-label" for="text">Text</label>
+							<div class="col-md-10">
+								<h:inputText class="form-control" placeholder="Text" autofocus="autofocus" id="text" name="text" type="text"
+									value="#{processesBean.text}" />
+							</div>
+							<div class="col-md-1">
+								<h:commandButton class="btn btn-primary" value="Start" action="#{processesBean.startProcess}" />
+							</div>
+						</div>
+					</h:form>
+				</div>
 			</div>
 
 		</ui:define>
