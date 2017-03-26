@@ -37,7 +37,7 @@
 			<artifactId>jsf-impl</artifactId>
 		</dependency>
 
-		<!-- External libraries -->
+		<!-- Webjars -->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
