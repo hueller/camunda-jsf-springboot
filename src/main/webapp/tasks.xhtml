@@ -28,14 +28,14 @@
 								<th>Assignee</th>
 								<th>Action</th>
 							</tr>
-							<ui:repeat var="assignedTask" value="#{camundaProcessService.getTasksForAssigne('admin')}">
+							<ui:repeat var="assignedTask" value="#{tasksBean.tasks()}">
 								<tr>
 									<td><h:outputText value="#{assignedTask.id}" /></td>
 									<td><h:outputText value="#{assignedTask.processInstanceId}" /></td>
 									<td><h:outputText value="#{assignedTask.name}" /></td>
 									<td><h:outputText value="#{assignedTask.assignee}" /></td>
 									<td><h:form>
-											<h:commandButton class="btn btn-primary" value="Complete" action="#{completeTaskBean.completeTask(assignedTask.id)}" />
+											<h:commandButton class="btn btn-primary" value="Complete" action="#{tasksBean.complete(assignedTask.id)}" />
 										</h:form></td>
 								</tr>
 							</ui:repeat>

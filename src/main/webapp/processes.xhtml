@@ -24,7 +24,7 @@
 					</div>
 					<div class="col-md-12">
 						<h:form id="processHelloWorld" class="form-horizontal">
-							<h:commandButton class="btn btn-primary" value="Start" action="#{helloWorldProcessBean.startProcess}" />
+							<h:commandButton class="btn btn-primary" value="Start" action="#{processesBean.startProcessHelloWorld}" />
 						</h:form>
 					</div>
 				</div>
@@ -44,10 +44,10 @@
 							<label class="col-md-1 control-label" for="text">Text</label>
 							<div class="col-md-10">
 								<h:inputText class="form-control" placeholder="Text" autofocus="autofocus" id="text" name="text" type="text"
-									value="#{userTaskProcessBean.userTaskModel.text}" required="true" requiredMessage="Text is mandatory." />
+									value="#{processesBean.userTaskModel.text}" required="true" requiredMessage="Text is mandatory." />
 							</div>
 							<div class="col-md-1">
-								<h:commandButton class="btn btn-primary" value="Start" action="#{userTaskProcessBean.startProcess}" />
+								<h:commandButton class="btn btn-primary" value="Start" action="#{processesBean.startProcessUserTask}" />
 							</div>
 						</div>
 					</h:form>

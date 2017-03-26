@@ -7,40 +7,39 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
-import de.hsansbach.ecommerce.jsf.NavigationHelper;
 import de.hsansbach.ecommerce.jsf.NavigationHelper.NavigationKey;
 import de.hsansbach.ecommerce.jsf.model.UserTaskModel;
 import de.hsansbach.ecommerce.process.ProcessKey;
-import de.hsansbach.ecommerce.process.service.CamundaProcessService;
 
 @Named
 @Scope("request")
-public class UserTaskProcessBean {
-
-	@Autowired
-	private NavigationHelper navigationHelper;
-
-	@Autowired
-	private CamundaProcessService camundaProcessService;
+public class ProcessesBean extends AbstractBean {
 
 	private UserTaskModel userTaskModel;
 
-	public UserTaskProcessBean() {
+	public ProcessesBean() {
 		userTaskModel = new UserTaskModel();
 	}
 
-	public String startProcess() {
+	public String startProcessUserTask() {
 		Map<String, Object> variables = new HashMap<>();
-		variables.put("assignee", "admin");
+		variables.put("assignee", getUsername());
 		variables.put("text", userTaskModel.getText());
 
 		String processInstanceId = camundaProcessService.startProcess(ProcessKey.USER_TASK, variables);
 
-		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message", new FacesMessage(FacesMessage.SEVERITY_INFO, 
-				"Successfully started process 'User Task' with id " + processInstanceId + ".",""));
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message",
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process 'User Task' with id " + processInstanceId + ".", ""));
+		return navigationHelper.navigateTo(NavigationKey.PROCESSES, true);
+	}
+
+	public String startProcessHelloWorld() {
+		String processInstanceId = camundaProcessService.startProcess(ProcessKey.HELLO_WORLD);
+
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message",
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process 'Hello World' with id " + processInstanceId + ".", ""));
 		return navigationHelper.navigateTo(NavigationKey.PROCESSES, true);
 	}
 
@@ -51,5 +50,5 @@ public class UserTaskProcessBean {
 	public void setUserTaskModel(UserTaskModel userTaskModel) {
 		this.userTaskModel = userTaskModel;
 	}
-	
+
 }
