@@ -33,7 +33,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/login.jsf").permitAll()
 				.antMatchers("/app/**", "/lib/**", "/api/**").permitAll() // Required for Camunda Webapps
 				.antMatchers("/h2-console/**").permitAll() // Required for H2 console
-				.antMatchers("/javax.faces.resource/**", "/img/**", "/css/**", "/js/**", "/fonts/**").permitAll() // Static resources
+				.antMatchers("/javax.faces.resource/**", "/img/**", "/css/**").permitAll() // Static resources
 				.anyRequest().authenticated();
 		// @formatter:on
 	}
