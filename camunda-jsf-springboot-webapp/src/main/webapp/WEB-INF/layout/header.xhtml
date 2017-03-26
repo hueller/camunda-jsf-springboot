@@ -33,14 +33,21 @@
 							<li class="#{(active == 'Home') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('HOME')}">Home</h:outputLink></li>
 							<li class="#{(active == 'Processes') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('PROCESSES')}">Processes</h:outputLink></li>
 							<li class="#{(active == 'Tasks') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('TASKS')}">Tasks</h:outputLink></li>
-							<li><a href="/app/" target="_blank">Camunda Webapps</a></li>
-							<li><a href="/h2-console/" target="_blank">H2 Console</a></li>
+							<li><a href="/app/" target="_blank"><span class="dropup"><span class="caret"></span></span> Camunda</a></li>
+							<li><a href="/h2-console/" target="_blank"><span class="dropup"><span class="caret"></span></span> H2 Console</a></li>
 						</ul>
 					</ui:fragment>
 					<ui:fragment rendered="#{loggedIn}">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/logout">Logout</a></li>
-						</ul>
+						<form class="navbar-form navbar-right">
+							<div class="btn-group">
+								<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<h:outputText value="#{securityBean.authentication.principal.username}" /> <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="/logout">Logout</a></li>
+								</ul>
+							</div>
+						</form>
 					</ui:fragment>
 				</div>
 			</div>
