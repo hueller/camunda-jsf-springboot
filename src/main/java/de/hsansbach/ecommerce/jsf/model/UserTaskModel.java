@@ -1,6 +1,6 @@
 package de.hsansbach.ecommerce.jsf.model;
 
-public class ProcessesModel {
+public class UserTaskModel {
 
 	private String text;
 

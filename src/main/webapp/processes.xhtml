@@ -17,14 +17,25 @@
 				<ui:fragment rendered="#{not empty flash['message']}">
 					<p class="alert alert-success"><h:outputText value="#{flash['message'].summary}" /></p>
 				</ui:fragment>
-
+				
 				<div class="row">
 					<div class="col-md-12">
-						<h3>Process 'Sample'</h3>
+						<h3>Process 'Hello World'</h3>
 					</div>
-					<h:form id="processes" class="form-horizontal">
+					<div class="col-md-12">
+						<h:form id="processHelloWorld" class="form-horizontal">
+							<h:commandButton class="btn btn-primary" value="Start" action="#{helloWorldProcessBean.startProcess}" />
+						</h:form>
+					</div>
+				</div>
+
+				<div class="row top-buffer-sm">
+					<div class="col-md-12">
+						<h3>Process 'User Task'</h3>
+					</div>
+					<h:form id="processUserTask" class="form-horizontal">
 						<div class="col-md-12">
-							<ui:param name="messages" value="#{facesContext.getMessageList('processes:text')}" />
+							<ui:param name="messages" value="#{facesContext.getMessageList('processUserTask:text')}" />
 							<ui:repeat var="message" value="#{messages}">
 								<p class="alert alert-danger"><h:outputText value="#{message.summary}" /></p>
 							</ui:repeat>
@@ -33,10 +44,10 @@
 							<label class="col-md-1 control-label" for="text">Text</label>
 							<div class="col-md-10">
 								<h:inputText class="form-control" placeholder="Text" autofocus="autofocus" id="text" name="text" type="text"
-									value="#{processesBean.processesModel.text}" required="true" requiredMessage="Text is mandatory." />
+									value="#{userTaskProcessBean.userTaskModel.text}" required="true" requiredMessage="Text is mandatory." />
 							</div>
 							<div class="col-md-1">
-								<h:commandButton class="btn btn-primary" value="Start" action="#{processesBean.startProcess}" />
+								<h:commandButton class="btn btn-primary" value="Start" action="#{userTaskProcessBean.startProcess}" />
 							</div>
 						</div>
 					</h:form>
