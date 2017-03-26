@@ -8,14 +8,14 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
 @EnableProcessApplication
-public class CamundaJsfSpringbootApplication extends SpringBootServletInitializer {
+public class CamundaJsfSpringbootWebapp extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CamundaJsfSpringbootApplication.class, args);
+		SpringApplication.run(CamundaJsfSpringbootWebapp.class, args);
 	}
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(CamundaJsfSpringbootApplication.class);
+		return application.sources(CamundaJsfSpringbootWebapp.class);
 	}
 }
