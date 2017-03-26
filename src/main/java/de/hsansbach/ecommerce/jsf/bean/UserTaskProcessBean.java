@@ -39,7 +39,8 @@ public class UserTaskProcessBean {
 
 		String processInstanceId = camundaProcessService.startProcess(ProcessKey.USER_TASK, variables);
 
-		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message", new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process 'User Task' with id " + processInstanceId,""));
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message", new FacesMessage(FacesMessage.SEVERITY_INFO, 
+				"Successfully started process 'User Task' with id " + processInstanceId + ".",""));
 		return navigationHelper.navigateTo(NavigationKey.PROCESSES, true);
 	}
 

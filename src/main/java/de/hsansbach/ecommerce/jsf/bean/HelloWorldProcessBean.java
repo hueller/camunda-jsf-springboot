@@ -30,7 +30,8 @@ public class HelloWorldProcessBean {
 
 		String processInstanceId = camundaProcessService.startProcess(ProcessKey.HELLO_WORLD, variables);
 
-		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message", new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process 'Hello World' with id " + processInstanceId,""));
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message", new FacesMessage(FacesMessage.SEVERITY_INFO, 
+				"Successfully started process 'Hello World' with id " + processInstanceId + ".",""));
 		return navigationHelper.navigateTo(NavigationKey.PROCESSES, true);
 	}
 	
