@@ -35,7 +35,7 @@
 									<td><h:outputText value="#{assignedTask.name}" /></td>
 									<td><h:outputText value="#{assignedTask.assignee}" /></td>
 									<td><h:form>
-											<h:commandButton class="btn btn-primary" value="Complete" action="#{tasksBean.completeTask(assignedTask.id)}" />
+											<h:commandButton class="btn btn-primary" value="Complete" action="#{completeTaskBean.completeTask(assignedTask.id)}" />
 										</h:form></td>
 								</tr>
 							</ui:repeat>

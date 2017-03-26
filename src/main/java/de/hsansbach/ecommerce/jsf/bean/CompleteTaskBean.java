@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Scope;
 
 import de.hsansbach.ecommerce.jsf.NavigationHelper;
 import de.hsansbach.ecommerce.jsf.NavigationHelper.NavigationKey;
-import de.hsansbach.ecommerce.process.CamundaProcessService;
+import de.hsansbach.ecommerce.process.service.CamundaProcessService;
 
 @Named
 @Scope("request")
-public class TasksBean {
+public class CompleteTaskBean {
 	
 	@Autowired
 	private NavigationHelper navigationHelper;
