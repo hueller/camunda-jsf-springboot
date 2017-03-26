@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableProcessApplication
-public class CamundaJsfSpringbootProcess {
+public class CamundaJsfSpringbootProcessApplication {
 	
 	public static void main(String[] args) {
-		SpringApplication.run(CamundaJsfSpringbootProcess.class, args);
+		SpringApplication.run(CamundaJsfSpringbootProcessApplication.class, args);
 	}
 
 }

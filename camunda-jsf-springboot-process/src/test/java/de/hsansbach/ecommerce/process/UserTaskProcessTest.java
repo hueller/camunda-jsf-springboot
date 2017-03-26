@@ -14,10 +14,10 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import de.hsansbach.ecommerce.CamundaJsfSpringbootProcess;
+import de.hsansbach.ecommerce.CamundaJsfSpringbootProcessApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = CamundaJsfSpringbootProcess.class)
+@SpringBootTest(classes = CamundaJsfSpringbootProcessApplication.class)
 public class UserTaskProcessTest extends AbstractProcessTest {
 
 	@Test
