@@ -11,7 +11,7 @@ public class JsfServletContainerConfiguration implements EmbeddedServletContaine
 	@Override
 	public void customize(ConfigurableEmbeddedServletContainer container) {
 		MimeMappings mappings = new MimeMappings(MimeMappings.DEFAULT);
-		mappings.add("ico", "image/x-icon"); // Get rid of missing mime-type warning for Favicon
+		mappings.add("ico", "image/x-icon"); // Get rid of missing mime-type warning for Favicons
 		container.setMimeMappings(mappings);
 	}
 
