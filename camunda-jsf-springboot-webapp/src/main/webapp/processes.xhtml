@@ -13,11 +13,13 @@
 
 			<div class="container">
 				<h2>Processes</h2>
-				
+
 				<ui:fragment rendered="#{not empty flash['message']}">
-					<p class="alert alert-success"><h:outputText value="#{flash['message'].summary}" /></p>
+					<p class="alert alert-success">
+						<h:outputText value="#{flash['message'].summary}" />
+					</p>
 				</ui:fragment>
-				
+
 				<div class="row">
 					<div class="col-md-12">
 						<h3>Process 'Hello World'</h3>
@@ -33,25 +35,26 @@
 					<div class="col-md-12">
 						<h3>Process 'User Task'</h3>
 					</div>
-					<h:form id="processUserTask" class="form-horizontal">
-						<div class="col-md-12">
-							<ui:param name="messages" value="#{facesContext.getMessageList('processUserTask:text')}" />
-							<ui:repeat var="message" value="#{messages}">
-								<p class="alert alert-danger"><h:outputText value="#{message.summary}" /></p>
-							</ui:repeat>
-						</div>
-						<div class="form-group">
-							<label class="col-md-1 control-label" for="text">Text</label>
-							<div class="col-md-10">
-								<h:inputText class="form-control" placeholder="Text" autofocus="autofocus" id="text" name="text" type="text"
-									value="#{processesBean.userTaskModel.text}" required="true" requiredMessage="Text is mandatory." />
-							</div>
-							<div class="col-md-1">
-								<h:commandButton class="btn btn-primary" value="Start" action="#{processesBean.startProcessUserTask}" />
-							</div>
-						</div>
-					</h:form>
 				</div>
+				<h:form id="processUserTask" class="form-horizontal">
+					<div class="col-sm-12">
+						<ui:param name="messages" value="#{facesContext.getMessageList('processUserTask:text')}" />
+						<ui:repeat var="message" value="#{messages}">
+							<p class="alert alert-danger">
+								<h:outputText value="#{message.summary}" />
+							</p>
+						</ui:repeat>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 control-label" for="text">Text</label>
+						<div class="col-sm-11">
+							<h:inputText class="form-control" placeholder="Text" autofocus="autofocus" id="text" name="text" type="text"
+								value="#{processesBean.userTaskModel.text}" required="true" requiredMessage="Text is mandatory." />
+						</div>
+					</div>
+					<h:commandButton class="btn btn-primary" value="Start" action="#{processesBean.startProcessUserTask}" />
+				</h:form>
+
 			</div>
 
 		</ui:define>
