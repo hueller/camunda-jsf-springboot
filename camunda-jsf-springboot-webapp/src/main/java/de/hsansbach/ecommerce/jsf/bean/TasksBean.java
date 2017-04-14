@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.inject.Named;
 
 import org.camunda.bpm.engine.task.Task;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import de.hsansbach.ecommerce.jsf.NavigationHelper.NavigationKey;
 
-@Named
+@Component
 @Scope("request")
 public class TasksBean extends AbstractBean {
 	

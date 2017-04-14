@@ -5,15 +5,15 @@ import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.inject.Named;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import de.hsansbach.ecommerce.jsf.NavigationHelper.NavigationKey;
 import de.hsansbach.ecommerce.jsf.model.UserTaskModel;
 import de.hsansbach.ecommerce.process.ProcessKey;
 
-@Named
+@Component
 @Scope("request")
 public class ProcessesBean extends AbstractBean {
 
