@@ -37,6 +37,22 @@ public class CamundaProcessService {
 	public List<Task> getTasksForAssigne(String assigne) {
 		return taskService.createTaskQuery().taskAssignee(assigne).list();
 	}
+	
+	public Task getActiveTaskForProcessInstanceId(String processInstanceId) {
+		return taskService.createTaskQuery().processInstanceId(processInstanceId).active().singleResult();
+	}
+	
+	public Map<String, Object> getVariablesForProcessInstanceId(String processInstanceId) {
+		return runtimeService.getVariables(processInstanceId);
+	}
+
+	public Object getVariableForProcessInstanceIdAndVariableKey(String processInstanceId, String variableKey) {
+		return runtimeService.getVariable(processInstanceId, variableKey);
+	}
+
+	public void setVariableToProcessInstance(String processInstanceId, String variableKey, Object variableValue) {
+		runtimeService.setVariable(processInstanceId, variableKey, variableValue);
+	}
 
 	public void completeTask(String taskId) {
 		completeTask(taskId, null);
