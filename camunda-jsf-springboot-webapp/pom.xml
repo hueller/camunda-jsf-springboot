@@ -50,6 +50,10 @@
 		<!-- Internal dependencies -->
 		<dependency>
 			<groupId>de.hsansbach.ecommerce</groupId>
+			<artifactId>camunda-jsf-springboot-engine</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.hsansbach.ecommerce</groupId>
 			<artifactId>camunda-jsf-springboot-process</artifactId>
 		</dependency>
 

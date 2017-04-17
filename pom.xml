@@ -17,6 +17,8 @@
 	<modules>
 		<module>camunda-jsf-springboot-webapp</module>
 		<module>camunda-jsf-springboot-process</module>
+		<module>camunda-jsf-springboot-domain</module>
+		<module>camunda-jsf-springboot-engine</module>
 	</modules>
 
 	<properties>
@@ -71,6 +73,16 @@
 			</dependency>
 
 			<!-- Internal dependencies -->
+			<dependency>
+				<groupId>de.hsansbach.ecommerce</groupId>
+				<artifactId>camunda-jsf-springboot-domain</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.hsansbach.ecommerce</groupId>
+				<artifactId>camunda-jsf-springboot-engine</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>de.hsansbach.ecommerce</groupId>
 				<artifactId>camunda-jsf-springboot-process</artifactId>
