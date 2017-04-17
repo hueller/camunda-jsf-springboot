@@ -9,10 +9,7 @@
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span> 
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
+						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
 					<h:outputLink value="#{navigationHelper.navigateTo('HOME')}">
 						<h:graphicImage alt="HS Ansbach" library="img" name="hsansbach_120px.png" styleClass="navbar-brand full" />
@@ -36,15 +33,21 @@
 							<li class="#{(active == 'Home') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('HOME')}">Home</h:outputLink></li>
 							<li class="#{(active == 'Processes') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('PROCESSES')}">Processes</h:outputLink></li>
 							<li class="#{(active == 'Tasks') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('TASKS')}">Tasks</h:outputLink></li>
-							<li><a href="/app/" target="_blank"><span class="dropup"><span class="caret"></span></span> Camunda</a></li>
-							<li><a href="/h2-console/" target="_blank"><span class="dropup"><span class="caret"></span></span> H2 Console</a></li>
+							<li class="#{(active == 'NumberGuess') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('NUMBERGUESS_START')}">Number Guess</h:outputLink></li>
+							<ui:fragment rendered="#{request.isUserInRole('ADMIN')}">
+								<li><a href="/app/" target="_blank"><span class="dropup"><span class="caret"></span></span> Camunda</a></li>
+							</ui:fragment>
+							<ui:fragment rendered="#{request.isUserInRole('ADMIN')}">
+								<li><a href="/h2-console/" target="_blank"><span class="dropup"><span class="caret"></span></span> H2 Console</a></li>
+							</ui:fragment>
 						</ul>
 					</ui:fragment>
 					<ui:fragment rendered="#{loggedIn}">
 						<form class="navbar-form navbar-right">
 							<div class="btn-group">
 								<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<h:outputText value="#{securityBean.authentication.principal.username}" /> <span class="caret"></span>
+									<h:outputText value="#{securityBean.authentication.principal.username}" />
+									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
 									<li><a href="/logout">Logout</a></li>
