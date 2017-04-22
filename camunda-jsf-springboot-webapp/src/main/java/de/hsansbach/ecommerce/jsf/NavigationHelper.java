@@ -21,6 +21,7 @@ public class NavigationHelper {
 		LOGIN("/login.jsf"), 
 		HOME("/home.jsf"),
 		PROCESSES("/processes.jsf"),
+		REGISTER_USER("/registerUser.jsf"),
 		TASKS("/tasks.jsf");
 		
 		private String fileName;

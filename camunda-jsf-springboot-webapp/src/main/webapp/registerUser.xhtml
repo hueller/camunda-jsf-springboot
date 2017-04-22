@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/WEB-INF/layout/layout.xhtml">
+		<ui:define name="content">
+
+			<div class="container">
+				<h3>Register new user</h3>
+
+				<ui:fragment rendered="#{not empty flash['message']}">
+					<p class="alert alert-danger">
+						<h:outputText value="#{flash['message'].summary}" />
+					</p>
+				</ui:fragment>
+				
+				<ui:repeat var="message" value="#{facesContext.getMessageList('registerUser:user')}">
+					<p class="alert alert-danger">
+						<h:outputText value="#{message.summary}" />
+					</p>
+				</ui:repeat>
+				
+				<ui:repeat var="message" value="#{facesContext.getMessageList('registerUser:password')}">
+					<p class="alert alert-danger">
+						<h:outputText value="#{message.summary}" />
+					</p>
+				</ui:repeat>
+
+				<h:form id="registerUser" class="form">
+					<div class="form-group">
+						<label class="control-label" for="user">User</label>
+						<h:inputText class="form-control" placeholder="User" autofocus="autofocus" id="user" name="user" type="text"
+							value="#{registerUserBean.registerUserModel.user}" required="true" requiredMessage="User is mandatory." />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="password">Password</label>
+						<h:inputSecret class="form-control" placeholder="Password" autofocus="autofocus" id="password" name="password" type="text"
+							value="#{registerUserBean.registerUserModel.password}" required="true" requiredMessage="Password is mandatory." />
+					</div>
+					<h:commandButton class="btn btn-primary" value="Register" action="#{registerUserBean.createUser}" />
+				</h:form>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope("session")
-public class SecurityBean {
+public class AuthenticationBean {
 	
 	private Authentication authentication;
 
-	public SecurityBean() {
+	public AuthenticationBean() {
 		authentication = SecurityContextHolder.getContext().getAuthentication();
 	}
 
