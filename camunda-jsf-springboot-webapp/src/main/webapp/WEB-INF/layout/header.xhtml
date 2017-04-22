@@ -33,10 +33,10 @@
 							<li class="#{(active == 'Home') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('HOME')}">Home</h:outputLink></li>
 							<li class="#{(active == 'Processes') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('PROCESSES')}">Processes</h:outputLink></li>
 							<li class="#{(active == 'Tasks') ? 'active' : ''}"><h:outputLink value="#{navigationHelper.navigateTo('TASKS')}">Tasks</h:outputLink></li>
-							<ui:fragment rendered="#{request.isUserInRole('ADMIN')}">
+							<ui:fragment rendered="#{request.isUserInRole('ROLE_ADMIN')}">
 								<li><a href="/app/" target="_blank"><span class="dropup"><span class="caret"></span></span> Camunda</a></li>
 							</ui:fragment>
-							<ui:fragment rendered="#{request.isUserInRole('ADMIN')}">
+							<ui:fragment rendered="#{request.isUserInRole('ROLE_ADMIN')}">
 								<li><a href="/h2-console/" target="_blank"><span class="dropup"><span class="caret"></span></span> H2 Console</a></li>
 							</ui:fragment>
 						</ul>
