@@ -14,6 +14,6 @@ Working project using Camunda BPM, Spring Boot and JavaServer Faces for lecture 
    - `mvn -version`
 
 3) Run application
-   - Go to directory `camunda-jsf-springboot-webapp`
-   - Type `mvn spring-boot:run`
-   - Open `http://localhost:8080`
+   # Go to directory `camunda-jsf-springboot` and type `mvn clean install`
+   # Go to directory `camunda-jsf-springboot-webapp` and type `mvn spring-boot:run`
+   # Open `http://localhost:8080`
