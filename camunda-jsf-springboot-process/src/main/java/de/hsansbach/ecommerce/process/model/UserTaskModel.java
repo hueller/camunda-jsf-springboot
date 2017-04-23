@@ -1,4 +1,4 @@
-package de.hsansbach.ecommerce.jsf.model;
+package de.hsansbach.ecommerce.process.model;
 
 public class UserTaskModel {
 

@@ -16,7 +16,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Component;
 
 import de.hsansbach.ecommerce.jsf.NavigationHelper.NavigationKey;
-import de.hsansbach.ecommerce.jsf.model.RegisterUserModel;
+import de.hsansbach.ecommerce.process.model.RegisterUserModel;
 
 @Component
 @Scope("request")
