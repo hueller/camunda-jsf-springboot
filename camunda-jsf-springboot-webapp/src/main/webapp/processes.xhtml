@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:body>
 	<ui:composition template="/WEB-INF/layout/layout.xhtml">
@@ -48,7 +48,7 @@
 					<div class="form-group">
 						<label class="col-sm-1 control-label" for="text">Text</label>
 						<div class="col-sm-11">
-							<h:inputText class="form-control" placeholder="Text" autofocus="autofocus" id="text" name="text" type="text"
+							<h:inputText class="form-control" pt:placeholder="Text" autofocus="autofocus" id="text" name="text" type="text"
 								value="#{processesBean.userTaskModel.text}" required="true" requiredMessage="Text is mandatory." />
 						</div>
 					</div>
