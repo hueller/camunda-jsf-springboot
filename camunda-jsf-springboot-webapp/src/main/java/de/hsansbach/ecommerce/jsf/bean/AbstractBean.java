@@ -5,7 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import de.hsansbach.ecommerce.jsf.NavigationHelper;
-import de.hsansbach.ecommerce.process.service.CamundaProcessService;
+import de.hsansbach.ecommerce.process.CamundaProcessService;
 
 public abstract class AbstractBean {
 
