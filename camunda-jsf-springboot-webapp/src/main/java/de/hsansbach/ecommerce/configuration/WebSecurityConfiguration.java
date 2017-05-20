@@ -17,6 +17,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import de.hsansbach.ecommerce.jsf.NavigationHelper.NavigationKey;
+
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -31,16 +33,16 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.csrf()
 				.disable() // CSRF protection is not supported by Camunda Webapps
 			.formLogin()
-				.loginPage("/login.jsf")
+				.loginPage(NavigationKey.LOGIN.getFileName())
 				.loginProcessingUrl("/login")
-				.failureUrl("/login.jsf?error=true")
-				.successForwardUrl("/home.jsf")
+				.failureUrl(NavigationKey.LOGIN.getFileName() + "?error=true")
+				.successForwardUrl(NavigationKey.HOME.getFileName())
 				.and()
 			.logout()
 				.logoutSuccessUrl("/login.jsf?logout=true")
 				.and()
 			.authorizeRequests()
-				.antMatchers("/login.jsf", "/registerUser.jsf").permitAll()
+				.antMatchers(NavigationKey.LOGIN.getFileName(), NavigationKey.REGISTER_USER.getFileName()).permitAll()
 				.antMatchers("/app/**", "/lib/**", "/api/**").permitAll() // Required for Camunda Webapps
 				.antMatchers("/h2-console/**").permitAll() // Required for H2 console
 				.antMatchers("/javax.faces.resource/**", "/img/**", "/css/**").permitAll() // Static resources
