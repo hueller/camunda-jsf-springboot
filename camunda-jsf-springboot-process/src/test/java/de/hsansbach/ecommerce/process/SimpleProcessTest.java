@@ -14,12 +14,12 @@ import de.hsansbach.ecommerce.CamundaJsfSpringbootProcessApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CamundaJsfSpringbootProcessApplication.class)
-public class HelloWorldProcessTest extends AbstractProcessTest {
+public class SimpleProcessTest extends AbstractProcessTest {
 
 	@Test
 	@Deployment
 	public void startProcess() {
-		camundaProcessService.startProcess(ProcessKey.HELLO_WORLD);
+		camundaProcessService.startProcess(ProcessKey.SIMPLE);
 		
 		TestHelper.waitForJobExecutorToProcessAllJobs(((ProcessEngineImpl) processEngine).getProcessEngineConfiguration(), 10000, 50);
 

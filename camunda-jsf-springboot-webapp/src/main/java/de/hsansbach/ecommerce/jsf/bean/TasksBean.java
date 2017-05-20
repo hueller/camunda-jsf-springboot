@@ -24,6 +24,6 @@ public class TasksBean extends AbstractBean {
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message",
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully completed task id " + taskId + ".", ""));
-		return navigationHelper.navigateTo(NavigationKey.TASKS, true);
+		return navigationHelper.navigateToUsingRedirect(NavigationKey.TASKS);
 	}
 }

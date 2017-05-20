@@ -36,7 +36,7 @@ public class RegisterUserBean extends AbstractBean {
 			// User already exists
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "User " + registerUserModel.getUser() + " already exists.", ""));
-			return navigationHelper.navigateTo(NavigationKey.REGISTER_USER, true);
+			return navigationHelper.navigateToUsingRedirect(NavigationKey.REGISTER_USER);
 		}
 		
 		// User doesn't exists - create new user
@@ -47,7 +47,7 @@ public class RegisterUserBean extends AbstractBean {
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message",
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully registered user " + registerUserModel.getUser() + ".", ""));
-		return navigationHelper.navigateTo(NavigationKey.LOGIN, true);
+		return navigationHelper.navigateToUsingRedirect(NavigationKey.LOGIN);
 	}
 
 	public RegisterUserModel getRegisterUserModel() {

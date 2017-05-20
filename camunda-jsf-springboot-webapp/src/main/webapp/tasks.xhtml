@@ -13,33 +13,49 @@
 
 			<div class="container">
 				<h2>Tasks</h2>
-				
+
+				<ui:param name="assignedTasks" value="#{tasksBean.tasks()}" />
+
 				<ui:fragment rendered="#{not empty flash['message']}">
-					<p class="alert alert-success"><h:outputText value="#{flash['message'].summary}" /></p>
+					<p class="alert alert-success">
+						<h:outputText value="#{flash['message'].summary}" />
+					</p>
+				</ui:fragment>
+
+				<ui:fragment rendered="#{empty assignedTasks}">
+					<p class="alert alert-info">
+						<h:outputText value="No assigned tasks found." />
+					</p>
 				</ui:fragment>
 
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover">
-							<tr>
-								<th>Id</th>
-								<th>Process Instance Id</th>
-								<th>Name</th>
-								<th>Assignee</th>
-								<th>Action</th>
-							</tr>
-							<ui:repeat var="assignedTask" value="#{tasksBean.tasks()}">
-								<tr>
-									<td><h:outputText value="#{assignedTask.id}" /></td>
-									<td><h:outputText value="#{assignedTask.processInstanceId}" /></td>
-									<td><h:outputText value="#{assignedTask.name}" /></td>
-									<td><h:outputText value="#{assignedTask.assignee}" /></td>
-									<td><h:form>
-											<h:commandButton class="btn btn-primary" value="Complete" action="#{tasksBean.complete(assignedTask.id)}" />
-										</h:form></td>
-								</tr>
-							</ui:repeat>
-						</table>
+						<h:form>
+							<h:dataTable value="#{assignedTasks}" var="assignedTask" class="table table-striped" rendered="#{not empty assignedTasks}">
+								<ui:param name="bankAccountRequestModel" value="#{camundaProcessService.getVariableForProcessInstanceIdAndVariableKey(openBankAccountRequestTask.processInstanceId, 'bankAccountRequestModel')}" />
+								<ui:param name="status" value="#{camundaProcessService.getVariableForProcessInstanceIdAndVariableKey(openBankAccountRequestTask.processInstanceId, 'status')}" />
+								<h:column>
+									<f:facet name="header">ID</f:facet>
+									<h:outputText value="#{assignedTask.id}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Process Instance Id</f:facet>
+									<h:outputText value="#{assignedTask.processInstanceId}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Name</f:facet>
+									<h:outputText value="#{assignedTask.name}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Assignee</f:facet>
+									<h:outputText value="#{assignedTask.assignee}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Action</f:facet>
+									<h:commandButton class="btn btn-primary" value="Complete" action="#{tasksBean.complete(assignedTask.id)}" />
+								</h:column>
+							</h:dataTable>
+						</h:form>
 					</div>
 				</div>
 			</div>

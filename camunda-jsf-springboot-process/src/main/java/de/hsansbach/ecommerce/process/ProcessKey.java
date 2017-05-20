@@ -2,7 +2,7 @@ package de.hsansbach.ecommerce.process;
 
 public enum ProcessKey {
 
-	HELLO_WORLD,
+	SIMPLE,
 
 	USER_TASK;
 

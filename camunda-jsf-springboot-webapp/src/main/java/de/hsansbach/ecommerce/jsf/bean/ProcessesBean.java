@@ -31,16 +31,16 @@ public class ProcessesBean extends AbstractBean {
 		String processInstanceId = camundaProcessService.startProcess(ProcessKey.USER_TASK, variables);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message",
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process 'User Task' with id " + processInstanceId + ".", ""));
-		return navigationHelper.navigateTo(NavigationKey.PROCESSES, true);
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process '" + ProcessKey.USER_TASK.name() + "' with id " + processInstanceId + ".", ""));
+		return navigationHelper.navigateToUsingRedirect(NavigationKey.PROCESSES);
 	}
 
-	public String startProcessHelloWorld() {
-		String processInstanceId = camundaProcessService.startProcess(ProcessKey.HELLO_WORLD);
+	public String startProcessSimple() {
+		String processInstanceId = camundaProcessService.startProcess(ProcessKey.SIMPLE);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("message",
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process 'Hello World' with id " + processInstanceId + ".", ""));
-		return navigationHelper.navigateTo(NavigationKey.PROCESSES, true);
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully started process '" + ProcessKey.SIMPLE.name() + "' with id " + processInstanceId + ".", ""));
+		return navigationHelper.navigateToUsingRedirect(NavigationKey.PROCESSES);
 	}
 
 	public UserTaskModel getUserTaskModel() {

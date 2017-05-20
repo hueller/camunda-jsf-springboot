@@ -13,7 +13,11 @@ public class NavigationHelper {
 		return key.getFileName();
 	}
 	
-	public String navigateTo(NavigationKey key, boolean doRedirect) {
+	public String navigateToUsingRedirect(String key) {
+		return navigateToUsingRedirect(NavigationKey.valueOf(key).getFileName());
+	}
+	
+	public String navigateToUsingRedirect(NavigationKey key) {
 		return navigateTo(key) + "?faces-redirect=true";
 	}
 

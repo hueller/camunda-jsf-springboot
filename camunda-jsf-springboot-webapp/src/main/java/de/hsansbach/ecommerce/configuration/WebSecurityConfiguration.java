@@ -50,9 +50,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// @formatter:off
 		auth.userDetailsService(getInMemoryUserDetailsManager());
-		// @formatter:on
 	}
 	
 	@Bean
