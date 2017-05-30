@@ -26,7 +26,10 @@ public class NavigationHelper {
 		HOME("/home.jsf"),
 		PROCESSES("/processes.jsf"),
 		REGISTER_USER("/registerUser.jsf"),
-		TASKS("/tasks.jsf");
+		TASKS("/tasks.jsf"),
+		NUMBERGUESS_START("/numberguess_start.jsf"),
+		NUMBERGUESS_GUESSNUMBER("/numberguess_guessnumber.jsf"),
+		NUMBERGUESS_SUCCESS("/numberguess_success.jsf");
 		
 		private String fileName;
 		private NavigationKey(String fileName) {

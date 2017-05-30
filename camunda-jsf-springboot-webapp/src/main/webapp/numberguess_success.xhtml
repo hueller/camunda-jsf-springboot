@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/WEB-INF/layout/layout.xhtml">
+		<ui:param name="title" value="HS Ansbach : Number Guess" />
+		<ui:param name="loggedIn" value="true" />
+		<ui:param name="active" value="NumberGuess" />
+	
+		<ui:define name="content">
+		
+			<div class="container">
+				<h2>Number Guess</h2>
+				
+				<ui:fragment rendered="#{not empty flash['message']}">
+					<p class="alert alert-success">
+						<h:outputText value="#{flash['message'].summary}" />
+					</p>
+				</ui:fragment>
+
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Process 'Number Guess'</h3>
+					</div>
+					<div class="col-md-12">
+						<p class="alert alert-success top-buffer-md">Number #{numberGuessBean.numberGuessModel.number} is correct. Number of guesses: #{numberGuessBean.counter}.</p>
+					</div>
+				</div>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>
